@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>One Page Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+    <form action="https://api.web3forms.com/submit" method="POST"></form>
+  <style>
+  /* General Styles */
+  body {
+    background: url('assets/bg_bb.png') center/cover no-repeat fixed;
+    font-family: Arial, sans-serif;
+    scroll-behavior: smooth;
+    padding-top: 30px;
+    color: white;
+  }
+
+  /* Navbar */
+  .navbar {
+    background-color: #161f28;
+    color: #fff;
+  }
+
+  .navbar a {
+    color: white !important;
+  }
+
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+  }
+
+  /* Header Section */
+  .h_Section {
+    background: url('assets/bg2.png') center/cover no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: white;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .h_Section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+  }
+
+  .header-content {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    max-width: 1200px;
+  }
+
+  .header-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .profile-pic {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+  }
+
+  .header-text {
+    flex: 2;
+    text-align: justify;
+    padding: 0 50px 0 0;
+  }
+
+  .header-text h1 {
+    font-size: 3.5rem;
+    margin: 0;
+    font-weight: bold;
+  }
+
+  .header-text .intro-line {
+    font-family: 'Times New Roman', serif;
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    font-style: italic;
+  }
+
+  .header-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+
+  .social-icons-header {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .social-icons-header a {
+    color: white;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+
+  .social-icons-header a.facebook {
+    background: #3b5998;
+  }
+
+  .social-icons-header a.github {
+    background: #171515;
+  }
+
+  .social-icons-header a.instagram {
+    background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  }
+
+  .social-icons-header a.email {
+    background: #e00000;
+  }
+
+  .social-icons-header a:hover {
+    transform: scale(1.3);
+  }
+
+  /* General Section Styles */
+  section {
+    background: url('/assets/bg_bb.png') center/cover no-repeat;
+  }
+
+  .section-title {
+    color: white;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  /* About Section */
+  #about {
+    padding: 100px 20px;
+  }
+
+  #about .carousel-inner img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+
+  #about .carousel-caption {
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    padding: 10px;
+    bottom: 20px;
+  }
+
+  .custom-accordion .accordion-item {
+    background: #1f2937;
+    border: none;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .custom-accordion .accordion-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  .custom-accordion .accordion-button {
+    background: #1f2937;
+    color: white;
+    font-weight: 500;
+    border-radius: 15px;
+    box-shadow: none;
+  }
+
+  .custom-accordion .accordion-button:not(.collapsed) {
+    background: #111827;
+    color: #38bdf8;
+  }
+
+  .custom-accordion .accordion-body {
+    background: #1f2937;
+    border-radius: 0 0 15px 15px;
+    padding: 20px;
+  }
+
+  /* Workshops & Skills Section */
+  #workshops, #skills {
+    padding: 100px 20px;
+  }
+
+  .workshops-card,
+  .skill-card,
+  .project-card {
+    background: #1f2937;
+    border: none;
+    border-radius: 15px;
+    padding: 20px;
+    color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    min-height: 250px;
+  }
+
+  .workshops-card:hover,
+  .skill-card:hover,
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  .workshops-icon,
+  .skill-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+  }
+
+  /* Projects Section */
+  #projects {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .project-card {
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    height: 300px;
+  }
+
+  .project-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    border-radius: 15px;
+  }
+
+  .project-card:hover img {
+    transform: scale(1.05);
+  }
+
+  .card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 15px;
+  }
+
+  .project-card:hover .card-overlay {
+    opacity: 1;
+  }
+
+  .card-overlay h4 {
+    color: white;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+
+  /* Modal Styles */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1050;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .modal-content {
+    background: #111827;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    max-width: 900px;
+    width: 90%;
+    position: relative;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: auto;
+    max-height: 90vh;
+    overflow-y: auto;
+    font-size: 0.9rem;
+  }
+
+  .close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    z-index: 1060;
+  }
+
+  .close-btn:hover {
+    transform: scale(1.2);
+  }
+
+  .project-layout {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-items: flex-start;
+    margin-top: 20px;
+  }
+
+  .project-image {
+    flex: 1;
+  }
+
+  .carousel-wrapper {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .carousel-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .carousel-images img {
+    min-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 10px;
+  }
+
+  .carousel-controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+  }
+
+  .carousel-controls button {
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    margin: 0 10px;
+    transition: background 0.3s;
+  }
+
+  .carousel-controls button:hover {
+    background: rgba(0, 0, 0, 0.8);
+  }
+
+  .project-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .project-details h3 {
+    color: #38bdf8;
+    font-weight: bold;
+  }
+
+  .progress {
+    height: 25px;
+    background-color: #374151;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  .progress-bar {
+    height: 100%;
+    background-color: #38bdf8;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Contact Section */
+  #contact {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+    background: url('/assets/bg_bb.png') center/cover no-repeat;
+  }
+
+  .contact-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #1f2937;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: #111827;
+    color: white;
+  }
+
+  .contact-form button {
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: #38bdf8;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  .contact-form button:hover {
+    background: #0ea5e9;
+  }
+
+  /* Footer */
+  footer {
+    background: #161f28;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+  }
+
+  /* Responsiveness */
+  @media (min-width: 993px) {
+    .header-content {
+      flex-direction: row;
+    }
+
+    .header-text {
+      padding-right: 50px;
+      padding-left: 0;
+    }
+
+    .header-image {
+      padding-left: 50px;
+      padding-right: 0;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .h_Section {
+      height: auto;
+      padding-top: 80px;
+      padding-bottom: 80px;
+    }
+
+    .header-content {
+      flex-direction: column;
+      text-align: center;
+      gap: 40px;
+    }
+
+    .header-text {
+      padding: 0;
+    }
+
+    .header-image {
+      display: flex;
+      justify-content: center;
+    }
+
+    .social-icons-header {
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .project-layout {
+      flex-direction: column;
+    }
+
+    .modal-content {
+      padding: 15px;
+      width: 95%;
+      max-width: none;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .header-text h1 {
+      font-size: 2.5rem;
+    }
+
+    .header-text .intro-line {
+      font-size: 1.2rem;
+    }
+
+    .header-text p {
+      font-size: 0.9rem;
+    }
+  }
+</style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top p-4">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#h_Section">
+            <span class="fs-4 fw-bold">MM | Computer Engineering</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#workshops">Workshops</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#skills">Skills</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#projects">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    <section class="h_Section">
+    <div class="header-content">
+        <div class="header-image">
+            <img src="assets/cra.png" alt="Profile Picture" class="profile-pic" />
+        </div>
+        <div class="header-text">
+            <span class="intro-line">I am</span>
+            <h1>MARC MARQUEZ</h1>
+            <p>Motivated computer engineering student passionate about creating innovative solutions, continuously learning, and applying technical skills to real-world challenges in the evolving tech industry.</p>
+            <div class="social-icons-header">
+                <a href="https://www.facebook.com/ma.rc.870305/" target="_blank" class="facebook"><i class="bi bi-facebook"></i></a>
+                <a href="https://github.com/CRAM-00" target="_blank" class="github"><i class="bi bi-github"></i></a>
+                <a href="https://www.instagram.com/" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">Educational Background</h2>
+            <div class="row align-items-center">
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="/assets/Legarda.png" class="d-block w-100" alt="Legarda Elementary">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Legarda Elementary School</h5>
+                                    <p>Primary Education</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="/assets/carlos.png" class="d-block w-100" alt="Carlos L. Albert High School">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>Carlos L. Albert High School</h5>
+                                    <p>Secondary Education</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="/assets/PHINMA.png" class="d-block w-100" alt="Phinmaed">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>PHINMA Saint Jude College Manila</h5>
+                                    <p>Senior High School</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="/assets/UE.png" class="d-block w-100" alt="University">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h5>University of the East</h5>
+                                    <p>Tertiary Education</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="accordion custom-accordion" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Legarda Elementary School
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <strong>2009 - 2016</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Carlos L. Albert High School
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <strong>2016 - 2020</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    PHINMA Saint Jude College
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <strong>2020 - 2023</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                    University of the East
+                                </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <strong>2023 - Present</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="workshops">
+        <div class="container">
+            <h2 class="section-title">Workshops</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="workshops-card">
+                        <i class="bi bi-shield-shaded text-primary workshops-icon"></i>
+                        <h5 class="card-title">Cybersentinel: A Cybersecurity Exploration</h5>
+                        <p class="card-text">- a brief dive into the key threats, tools, and tactics shaping today’s digital security landscape.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="workshops-card">
+                        <i class="bi bi-controller text-warning workshops-icon"></i>
+                        <h5 class="card-title">Psychology of Gaming Addiction</h5>
+                        <p class="card-text">- explores the mental, emotional, and behavioral factors that drive compulsive gaming and its impact on individuals and society.</p>         
+                     </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="workshops-card">
+                        <i class="bi bi-laptop text-white workshops-icon"></i>
+                        <h5 class="card-title">Figma Workshop</h5>
+                        <p class="card-text">- a hands-on session focused on teaching collaborative design, prototyping, and UI/UX principles using Figma’s powerful digital design tools.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="workshops-card">
+                        <i class="bi bi-shield-check text-success workshops-icon"></i>
+                        <h5 class="card-title">Anti Cyberbullying Seminar</h5>
+                        <p class="card-text">- an awareness-focused session aimed at educating participants on the impact of cyberbullying and promoting safe, respectful online behavior.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="workshops-card">
+                        <i class="bi bi-file-earmark-person text-primary workshops-icon"></i>
+                        <h5 class="card-title">Career Launchpad: Resume Writing for Emerging Computer Engineers</h5>
+                        <p class="card-text">- a practical workshop designed to help new computer engineers craft effective resumes that highlight their skills and launch their careers.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="workshops-card">
+                        <i class="bi bi-trophy text-success workshops-icon"></i>
+                        <h5 class="card-title">Beyond Limits: Cultivating Growth for Success and Confidence</h5>
+                        <p class="card-text">- a motivational program focused on building mindset, skills, and resilience to help individuals unlock their full potential and achieve lasting confidence and success.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Skills & Expertise</h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card skill-card h-100">
+                        <div class="card-body d-flex flex-column">
+                            <div class="text-center">
+                                <i class="bi bi-gear skill-icon text-primary mb-3"></i>
+                                <h5 class="card-title">Technical Skills</h5>
+                            </div>
+                            <ul class="list-group list-group-flush flex-grow-1 mt-3">
+                                <li class="list-group-item bg-transparent text-white border-0">
+                                    <strong>Programming Languages:</strong> Java, Python, C++, JavaScript, HTML/CSS
+                                </li>
+                                <li class="list-group-item bg-transparent text-white border-0">
+                                    <strong>Database Management:</strong> MySQL, SQL
+                                </li>
+                                <li class="list-group-item bg-transparent text-white border-0">
+                                    <strong>Hardware & Embedded Systems:</strong> Microcontroller programming (Arduino), Circuit design and analysis, Troubleshooting
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card skill-card h-100">
+                        <div class="card-body d-flex flex-column">
+                            <div class="text-center">
+                                <i class="bi bi-tools skill-icon text-warning mb-3"></i>
+                                <h5 class="card-title">Tools & Platforms</h5>
+                            </div>
+                            <ul class="list-group list-group-flush flex-grow-1 mt-3">
+                                <li class="list-group-item bg-transparent text-white border-0">
+                                    <strong>Version Control:</strong> Git, GitHub
+                                </li>
+                                <li class="list-group-item bg-transparent text-white border-0">
+                                    <strong>IDEs & Editors:</strong> Visual Studio Code, IntelliJ IDEA, Eclipse
+                                </li>
+                                <li class="list-group-item bg-transparent text-white border-0">
+                                    <strong>Design & Prototyping:</strong> Figma, Canva
+                                </li>
+                                <li class="list-group-item bg-transparent text-white border-0">
+                                    <strong>Operating Systems:</strong> Windows, Linux
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card skill-card h-100">
+                        <div class="card-body d-flex flex-column">
+                            <div class="text-center">
+                                <i class="bi bi-people skill-icon text-success mb-3"></i>
+                                <h5 class="card-title">Professional & Interpersonal Skills</h5>
+                            </div>
+                            <ul class="list-group list-group-flush flex-grow-1 mt-3">
+                                <li class="list-group-item bg-transparent text-white border-0">
+                                    <strong>Team Collaboration:</strong> Experience working in team-based projects and communicating effectively.
+                                </li>
+                                <li class="list-group-item bg-transparent text-white border-0">
+                                    <strong>Project Management:</strong> Proficient in time management, setting clear goals, and adapting to unexpected challenges to ensure project success.
+                                </li>
+                                <li class="list-group-item bg-transparent text-white border-0">
+                                    <strong>Communication:</strong> Presenting ideas and technical concepts clearly to diverse audiences.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-5">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-6 col-lg-4">
+                    <div class="project-card" data-modal-target="#modal1">
+                        <img src="/assets/1.png" alt="Personal Profile App" />
+                        <div class="card-overlay">
+                            <h4>Tic Tac Toe</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="project-card" data-modal-target="#modal2">
+                        <img src="/assets/4.png" alt="HI-LO CARD GAME" />
+                        <div class="card-overlay">
+                            <h4>Toss Coin</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <button class="close-btn" aria-label="Close Modal">&times;</button>
+                <div class="modal-body project-layout">
+                    <div class="project-image carousel-wrapper">
+                        <div class="carousel-images">
+                            <img src="/assets/1.png" class="carousel-img active" alt="Slide 1">
+                            <img src="/assets/2.png" class="carousel-img" alt="Slide 2">
+                            <img src="/assets/3.png" class="carousel-img" alt="Slide 3">
+                        </div>
+                        <div class="carousel-controls">
+                            <button class="prev-btn">‹</button>
+                            <button class="next-btn">›</button>
+                        </div>
+                    </div>
+                    <div class="project-details">
+                        <h3>Tic Tac Toe</h3>
+                        <p>I developed a Tic Tac Toe game in Android Studio with two modes: Single Player and Multiplayer. In Single Player mode, players can choose between Easy, Medium, and Hard difficulty levels, each offering a different AI challenge. In Multiplayer mode, two players can compete on the same device, with the first player selecting whether to play as X or O.</p>
+                        <div class="skills-progress">
+                            <label>Skill Progress:</label>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">85%</div>
+                            </div>
+                        </div>
+                        <div class="modal-links mt-3">
+                            <a href="#" target="_blank" class="btn btn-primary me-2"><i class="bi bi-github"></i> GitHub</a>
+                            <a href="#" target="_blank" class="btn btn-outline-light"><i class="bi bi-globe"></i> Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal2" class="modal">
+            <div class="modal-content">
+                <button class="close-btn" aria-label="Close Modal">&times;</button>
+                <div class="modal-body project-layout">
+                    <div class="project-image carousel-wrapper">
+                        <div class="carousel-images">
+                            <img src="/assets/4.png" class="carousel-img active" alt="Slide 1">
+                            <img src="/assets/5.png" class="carousel-img" alt="Slide 2">
+                        </div>
+                        <div class="carousel-controls">
+                            <button class="prev-btn">‹</button>
+                            <button class="next-btn">›</button>
+                        </div>
+                    </div>
+                    <div class="project-details">
+                        <h3>Toss Coin</h3>
+                        <p>A simple yet engaging Android application developed using Android Studio. This project simulates a real-world coin toss with a single button that, when pressed, reveals either "Heads" or "Tails." The app is perfect for quick decisions and showcases basic UI/UX design and functionality in Android development.</p>
+                        <div class="skills-progress">
+                            <label>Skill Progress:</label>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
+                            </div>
+                        </div>
+                        <div class="modal-links mt-3">
+                            <a href="#" target="_blank" class="btn btn-primary me-2"><i class="bi bi-github"></i> GitHub</a>
+                            <a href="#" target="_blank" class="btn btn-outline-light"><i class="bi bi-globe"></i> Live Demo</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contact">
+            <div class="contact-container">
+                <h2>Contact Me</h2>
+                <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+                    <input type="hidden" name="access_key" value="437532eb-f5d2-4c9f-81d2-9d736b58d333">
+
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+
+                    <button type="submit">Send message</button>
+                </form>
+            </div>
+        </section>
+
+    <footer>
+         <div class="container">
+      <p>&copy; 2025 Marc Marquez. All rights reserved.</p>
+      <p>Computer Engineering Student | University of the East</p>
+    </div>
+  </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const projects = document.querySelectorAll('.project-card');
+            projects.forEach(project => {
+                project.addEventListener('click', function() {
+                    const targetModalId = this.getAttribute('data-modal-target');
+                    const modal = document.querySelector(targetModalId);
+                    if (modal) {
+                        modal.style.display = 'flex';
+                    }
+                });
+            });
+
+            const closeBtns = document.querySelectorAll('.close-btn');
+            closeBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const modal = this.closest('.modal');
+                    modal.style.display = 'none';
+                });
+            });
+
+            window.onclick = function(event) {
+                const modals = document.querySelectorAll('.modal');
+                modals.forEach(modal => {
+                    if (event.target === modal) {
+                        modal.style.display = 'none';
+                    }
+                });
+            };
+
+            // Carousel functionality for modals
+            document.querySelectorAll('.modal').forEach(modal => {
+                const carousel = modal.querySelector('.carousel-images');
+                if (!carousel) return;
+                const images = carousel.querySelectorAll('img');
+                const prevBtn = modal.querySelector('.prev-btn');
+                const nextBtn = modal.querySelector('.next-btn');
+                let currentIndex = 0;
+
+                const updateCarousel = () => {
+                    carousel.style.transform = `translateX(${-currentIndex * 100}%)`;
+                };
+
+                if (prevBtn) {
+                    prevBtn.addEventListener('click', () => {
+                        currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+                        updateCarousel();
+                    });
+                }
+                if (nextBtn) {
+                    nextBtn.addEventListener('click', () => {
+                        currentIndex = (currentIndex < images.length - 1) ? currentIndex + 1 : 0;
+                        updateCarousel();
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
