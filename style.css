@@ -1,5 +1,4 @@
-
-  body {
+body {
     background: url('assets/bg_bb.png') center/cover no-repeat fixed;
     font-family: Arial, sans-serif;
     scroll-behavior: smooth;
@@ -430,11 +429,13 @@
   }
 
   .contact-container {
-    max-width: 600px;
-    margin: 0 auto;
+    max-width: 500px;
+    min-width: 300px;
+    width: 100%;
+    margin: 2rem auto;
     background: #1f2937;
-    padding: 40px;
-    border-radius: 15px;
+    padding: 2rem 2rem;
+    border-radius: 12px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
   }
 
@@ -543,5 +544,13 @@
 
     .header-text p {
       font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .contact-container {
+      max-width: 95vw;
+      min-width: unset;
+      padding: 1.2rem;
     }
   }
